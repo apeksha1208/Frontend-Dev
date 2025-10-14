@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Course Registration Form</title>
+  </head>
+  <body>
+    <header>
+      <h1>University Course Registration</h1>
+      <p>Please fill out the form below to register for your desired courses</p>
+    </header>
+
+    <main>
+      <!-- Course Registration Form -->
+      <form>
+        <!-- Personal Information Fieldset -->
+        <fieldset>
+          <legend><strong>Personal Information</strong></legend>
+
+          <label for="studentName">Full Name:</label><br />
+          <input
+            type="text"
+            id="studentName"
+            name="studentName"
+            required
+          /><br /><br />
+
+          <label for="email">Email Address:</label><br />
+          <input type="email" id="email" name="email" required /><br /><br />
+
+          <label for="phone">Phone Number:</label><br />
+          <input type="tel" id="phone" name="phone" /><br /><br />
+
+          <label for="studentId">Student ID:</label><br />
+          <input
+            type="text"
+            id="studentId"
+            name="studentId"
+            required
+          /><br /><br />
+        </fieldset>
+
+        <!-- Course Selection Fieldset -->
+        <fieldset>
+          <legend><strong>Course Selection</strong></legend>
+
+          <label for="courseSelect">Select Course:</label><br />
+          <select id="courseSelect" name="courseSelect" required>
+            <option value="">-- Please select a course --</option>
+            <option value="cs101">
+              Computer Science 101 - Introduction to Programming
+            </option>
+            <option value="cs201">
+              Computer Science 201 - Data Structures
+            </option>
+            <option value="cs301">Computer Science 301 - Algorithms</option>
+            <option value="math101">Mathematics 101 - Calculus I</option>
+            <option value="math201">Mathematics 201 - Linear Algebra</option>
+            <option value="physics101">Physics 101 - Mechanics</option>
+            <option value="english101">English 101 - Composition</option>
+            <option value="history101">
+              History 101 - World History
+            </option></select
+          ><br /><br />
+
+          <label for="semester">Semester:</label><br />
+          <select id="semester" name="semester" required>
+            <option value="">-- Select Semester --</option>
+            <option value="fall2024">Fall 2024</option>
+            <option value="spring2025">Spring 2025</option>
+            <option value="summer2025">Summer 2025</option></select
+          ><br /><br />
+
+          <label for="credits">Credit Hours:</label><br />
+          <select id="credits" name="credits">
+            <option value="3">3 Credits</option>
+            <option value="4">4 Credits</option>
+            <option value="6">6 Credits</option></select
+          ><br /><br />
+        </fieldset>
+
+        <!-- Additional Information Fieldset -->
+        <fieldset>
+          <legend><strong>Additional Information</strong></legend>
+
+          <label for="prerequisites">Previous Experience:</label><br />
+          <textarea
+            id="prerequisites"
+            name="prerequisites"
+            rows="4"
+            cols="50"
+            placeholder="Please describe any relevant coursework or experience..."
+          ></textarea
+          ><br /><br />
+
+          <label for="specialNeeds">Special Requirements:</label><br />
+          <textarea
+            id="specialNeeds"
+            name="specialNeeds"
+            rows="3"
+            cols="50"
+            placeholder="Any special accommodations needed..."
+          ></textarea
+          ><br /><br />
+
+          <label>
+            <input type="checkbox" name="agreeTerms" required />
+            I agree to the terms and conditions of course registration </label
+          ><br /><br />
+        </fieldset>
+
+        <!-- Submit Button -->
+        <input type="submit" value="Register for Course" />
+        <input type="reset" value="Clear Form" />
+      </form>
+
+      <!-- Course Schedule Table -->
+      <section>
+        <h2>Available Course Schedules</h2>
+        <table border="1" width="100%">
+          <thead>
+            <tr>
+              <th>Course Code</th>
+              <th>Day</th>
+              <th>Time</th>
+              <th>Instructor</th>
+              <th>Room</th>
+              <th>Duration</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>CS101</td>
+              <td>Monday, Wednesday, Friday</td>
+              <td>9:00 AM - 10:00 AM</td>
+              <td>Dr. Sarah Johnson</td>
+              <td>Computer Lab 1</td>
+              <td>15 weeks</td>
+            </tr>
+            <tr>
+              <td>CS201</td>
+              <td>Tuesday, Thursday</td>
+              <td>11:00 AM - 12:30 PM</td>
+              <td>Prof. Michael Chen</td>
+              <td>Room 205</td>
+              <td>15 weeks</td>
+            </tr>
+            <tr>
+              <td>CS301</td>
+              <td>Monday, Wednesday</td>
+              <td>2:00 PM - 3:30 PM</td>
+              <td>Dr. Emily Rodriguez</td>
+              <td>Room 301</td>
+              <td>15 weeks</td>
+            </tr>
+            <tr>
+              <td>MATH101</td>
+              <td>Monday, Wednesday, Friday</td>
+              <td>10:00 AM - 11:00 AM</td>
+              <td>Dr. James Wilson</td>
+              <td>Room 101</td>
+              <td>15 weeks</td>
+            </tr>
+            <tr>
+              <td>MATH201</td>
+              <td>Tuesday, Thursday</td>
+              <td>1:00 PM - 2:30 PM</td>
+              <td>Prof. Lisa Thompson</td>
+              <td>Room 203</td>
+              <td>15 weeks</td>
+            </tr>
+            <tr>
+              <td>PHYS101</td>
+              <td>Monday, Wednesday</td>
+              <td>8:00 AM - 9:30 AM</td>
+              <td>Dr. Robert Davis</td>
+              <td>Physics Lab</td>
+              <td>15 weeks</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td colspan="6">
+                <strong>Note:</strong> All courses are subject to minimum
+                enrollment requirements. Contact the registrar for more
+                information.
+              </td>
+            </tr>
+          </tfoot>
+        </table>
+      </section>
+    </main>
+
+    <footer>
+      <p>
+        &copy; 2024 University Registration System. For assistance, contact:
+        registrar@university.edu
+      </p>
+    </footer>
+  </body>
+</html>

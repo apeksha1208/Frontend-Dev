@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Travel Destination Selection - Dropdown Forms</title>
+  </head>
+  <body>
+    <header>
+      <h1>Travel Destination Selection</h1>
+      <p>Choose your perfect travel destination using our interactive form</p>
+      <p>By Apeksha - Travel Planning Assistant</p>
+    </header>
+
+    <main>
+      <form>
+        <h2>Select Your Travel Preferences</h2>
+
+        <!-- Country Selection -->
+        <fieldset>
+          <legend><strong>Country Selection</strong></legend>
+          <label for="country">Choose your destination country:</label><br />
+          <select id="country" name="country" required>
+            <option value="france" selected>France</option>
+            <option value="japan">Japan</option>
+            <option value="usa">United States</option>
+            <option value="italy">Italy</option>
+            <option value="spain">Spain</option>
+            <option value="germany">Germany</option>
+            <option value="uk">United Kingdom</option>
+            <option value="australia">Australia</option>
+            <option value="canada">Canada</option>
+            <option value="india">India</option>
+            <option value="thailand">Thailand</option>
+            <option value="singapore">Singapore</option>
+          </select>
+        </fieldset>
+
+        <!-- State/Region Selection -->
+        <fieldset>
+          <legend><strong>State/Region Selection</strong></legend>
+          <label for="state">Choose your preferred state or region:</label
+          ><br />
+          <select id="state" name="state" required>
+            <option value="ile-de-france" selected>
+              Île-de-France (Paris Region)
+            </option>
+            <option value="tokyo">Tokyo Prefecture</option>
+            <option value="new-york">New York</option>
+            <option value="california">California</option>
+            <option value="lazio">Lazio (Rome Region)</option>
+            <option value="tuscany">Tuscany</option>
+            <option value="catalonia">Catalonia (Barcelona)</option>
+            <option value="andalusia">Andalusia</option>
+            <option value="bavaria">Bavaria</option>
+            <option value="england">England</option>
+            <option value="new-south-wales">New South Wales</option>
+            <option value="ontario">Ontario</option>
+            <option value="maharashtra">Maharashtra</option>
+            <option value="bangkok">Bangkok</option>
+            <option value="singapore-island">Singapore Island</option>
+          </select>
+        </fieldset>
+
+        <!-- City Selection -->
+        <fieldset>
+          <legend><strong>City Selection</strong></legend>
+          <label for="city">Choose your destination city:</label><br />
+          <select id="city" name="city" required>
+            <option value="paris" selected>Paris</option>
+            <option value="tokyo">Tokyo</option>
+            <option value="new-york-city">New York City</option>
+            <option value="los-angeles">Los Angeles</option>
+            <option value="rome">Rome</option>
+            <option value="florence">Florence</option>
+            <option value="barcelona">Barcelona</option>
+            <option value="seville">Seville</option>
+            <option value="munich">Munich</option>
+            <option value="london">London</option>
+            <option value="sydney">Sydney</option>
+            <option value="toronto">Toronto</option>
+            <option value="mumbai">Mumbai</option>
+            <option value="bangkok">Bangkok</option>
+            <option value="singapore">Singapore</option>
+          </select>
+        </fieldset>
+
+        <!-- Favorite Tourist Place Selection -->
+        <fieldset>
+          <legend><strong>Favorite Tourist Attraction</strong></legend>
+          <label for="attraction"
+            >Select your most anticipated tourist attraction:</label
+          ><br />
+          <select id="attraction" name="attraction" required>
+            <option value="eiffel-tower" selected>Eiffel Tower (Paris)</option>
+            <option value="louvre-museum">Louvre Museum (Paris)</option>
+            <option value="notre-dame">Notre-Dame Cathedral (Paris)</option>
+            <option value="tokyo-skytree">Tokyo Skytree (Tokyo)</option>
+            <option value="sensoji-temple">Senso-ji Temple (Tokyo)</option>
+            <option value="shibuya-crossing">Shibuya Crossing (Tokyo)</option>
+            <option value="statue-of-liberty">Statue of Liberty (NYC)</option>
+            <option value="times-square">Times Square (NYC)</option>
+            <option value="central-park">Central Park (NYC)</option>
+            <option value="colosseum">Colosseum (Rome)</option>
+            <option value="vatican-city">Vatican City (Rome)</option>
+            <option value="sagrada-familia">Sagrada Familia (Barcelona)</option>
+            <option value="park-guell">Park Güell (Barcelona)</option>
+            <option value="neuschwanstein">
+              Neuschwanstein Castle (Germany)
+            </option>
+            <option value="big-ben">Big Ben (London)</option>
+            <option value="london-eye">London Eye (London)</option>
+            <option value="opera-house">Sydney Opera House (Sydney)</option>
+            <option value="cn-tower">CN Tower (Toronto)</option>
+            <option value="gateway-india">Gateway of India (Mumbai)</option>
+            <option value="grand-palace">Grand Palace (Bangkok)</option>
+            <option value="marina-bay">Marina Bay Sands (Singapore)</option>
+          </select>
+        </fieldset>
+
+        <!-- Travel Duration -->
+        <fieldset>
+          <legend><strong>Travel Duration</strong></legend>
+          <label for="duration">How long do you plan to stay?</label><br />
+          <select id="duration" name="duration">
+            <option value="weekend" selected>Weekend (2-3 days)</option>
+            <option value="short-trip">Short Trip (4-7 days)</option>
+            <option value="medium-trip">Medium Trip (1-2 weeks)</option>
+            <option value="long-trip">Long Trip (2-4 weeks)</option>
+            <option value="extended">Extended Stay (1+ months)</option>
+          </select>
+        </fieldset>
+
+        <!-- Travel Season -->
+        <fieldset>
+          <legend><strong>Preferred Travel Season</strong></legend>
+          <label for="season">When would you like to travel?</label><br />
+          <select id="season" name="season">
+            <option value="spring" selected>Spring (March-May)</option>
+            <option value="summer">Summer (June-August)</option>
+            <option value="autumn">Autumn (September-November)</option>
+            <option value="winter">Winter (December-February)</option>
+            <option value="anytime">Anytime</option>
+          </select>
+        </fieldset>
+
+        <!-- Travel Budget -->
+        <fieldset>
+          <legend><strong>Travel Budget</strong></legend>
+          <label for="budget">What's your travel budget range?</label><br />
+          <select id="budget" name="budget">
+            <option value="budget" selected>Budget ($500-1500)</option>
+            <option value="mid-range">Mid-Range ($1500-3000)</option>
+            <option value="luxury">Luxury ($3000-5000)</option>
+            <option value="premium">Premium ($5000+)</option>
+            <option value="flexible">Flexible (No specific limit)</option>
+          </select>
+        </fieldset>
+
+        <!-- Submit Button -->
+        <input type="submit" value="Submit My Travel Preferences" />
+        <input type="reset" value="Reset Form" />
+      </form>
+
+      <!-- Summary Section -->
+      <section>
+        <h2>Your Travel Selection Summary</h2>
+        <p id="summary">
+          Based on your current selections, you're planning to visit
+          <strong>Paris, France</strong> in the
+          <strong>Île-de-France region</strong>. Your most anticipated
+          attraction is the <strong>Eiffel Tower</strong>, and you're planning a
+          <strong>weekend trip (2-3 days)</strong> during
+          <strong>spring (March-May)</strong> with a
+          <strong>budget range of $500-1500</strong>.
+        </p>
+
+        <h3>Why This Is a Great Choice!</h3>
+        <ul>
+          <li>
+            <strong>Paris in Spring:</strong> Perfect weather for sightseeing
+            with blooming flowers and mild temperatures
+          </li>
+          <li>
+            <strong>Eiffel Tower:</strong> An iconic landmark that offers
+            breathtaking views of the city
+          </li>
+          <li>
+            <strong>Weekend Trip:</strong> Ideal for exploring the main
+            attractions without rushing
+          </li>
+          <li>
+            <strong>Budget-Friendly:</strong> Paris offers many free attractions
+            and affordable dining options
+          </li>
+          <li>
+            <strong>Cultural Experience:</strong> Rich history, art, and cuisine
+            await in the City of Light
+          </li>
+        </ul>
+      </section>
+
+      <!-- Travel Tips -->
+      <section>
+        <h3>Quick Travel Tips for Your Selected Destination</h3>
+        <table border="1" width="100%">
+          <thead>
+            <tr>
+              <th>Category</th>
+              <th>Tip</th>
+              <th>Details</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Transportation</strong></td>
+              <td>Paris Metro</td>
+              <td>Get a Paris Visite pass for unlimited metro travel</td>
+            </tr>
+            <tr>
+              <td><strong>Attractions</strong></td>
+              <td>Skip the Lines</td>
+              <td>Book Eiffel Tower tickets online in advance</td>
+            </tr>
+            <tr>
+              <td><strong>Food</strong></td>
+              <td>Local Cafés</td>
+              <td>Try authentic French pastries at local boulangeries</td>
+            </tr>
+            <tr>
+              <td><strong>Language</strong></td>
+              <td>Basic French</td>
+              <td>Learn simple phrases like "Bonjour" and "Merci"</td>
+            </tr>
+            <tr>
+              <td><strong>Money</strong></td>
+              <td>Cash & Cards</td>
+              <td>Carry some cash as some places don't accept cards</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2024 Apeksha's Travel Planning Service. All rights reserved.</p>
+      <p><em>"Adventure awaits - let's make it happen!"</em></p>
+    </footer>
+  </body>
+</html>
