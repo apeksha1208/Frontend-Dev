@@ -1,0 +1,8 @@
+Frontend Developer: Designs and builds the user interface of a website or app.
+Ensures it looks good and works smoothly using HTML, CSS, and JavaScript.
+
+Backend Developer: Creates the server-side logic and handles data processing.
+Connects the frontend with databases and APIs to deliver dynamic content.
+
+Database Administrator (DBA): Manages and maintains the database systems of a project.
+Ensures data is stored securely, backed up, and accessible efficiently for the app.

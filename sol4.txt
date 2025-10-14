@@ -1,0 +1,20 @@
+Code Editor (VS Code): Used to write and edit HTML, CSS, JS code efficiently.
+Provides syntax highlighting, extensions, and debugging tools.
+
+Browser (Chrome, Firefox): Runs and displays your web pages.
+Developer tools help test and debug frontend code.
+
+Version Control (Git): Tracks changes and manages different code versions.
+Enables collaboration with platforms like GitHub or GitLab.
+
+Local Server (Node.js, XAMPP): Runs your web app on your computer before deployment.
+Supports backend processing and database connections locally.
+
+Database (MySQL, MongoDB): Stores and retrieves application data.
+Allows dynamic content for web applications.
+
+Package Manager (npm, yarn): Manages libraries and dependencies for your project.
+Helps install, update, and maintain third-party tools easily.
+
+Hosting (Netlify, Vercel, AWS): Publishes your website online for public access.
+Ensures your app is live and accessible from anywhere.

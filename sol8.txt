@@ -1,0 +1,2 @@
+Static websites display fixed content that doesn’t change unless manually updated. Example: a personal portfolio page.
+Dynamic websites generate content on-the-fly based on user interaction or database data. Example: YouTube, where content changes for each user and updates frequently.

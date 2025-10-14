@@ -1,0 +1,1 @@
+A web server is a system, either software or hardware, that hosts, processes, and delivers web pages to clients over the internet. It handles HTTP/HTTPS requests from browsers, retrieves necessary files or data, and sends them back to the user. Common examples include Apache, Nginx, Nodejs.

@@ -1,0 +1,9 @@
+Google Chrome: Uses Blink engine for fast and efficient rendering.
+
+Mozilla Firefox: Uses Gecko engine, flexible and standards-compliant.
+
+Microsoft Edge: Chromium-based, also uses Blink for speed.
+
+Safari: Uses WebKit engine, optimized for Apple devices.
+
+Opera: Uses Blink engine, similar to Chrome and Edge.

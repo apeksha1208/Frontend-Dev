@@ -1,0 +1,11 @@
+frontend: The part of a website or app that the user sees and interacts with.
+Eg:When you open YouTube, the buttons, videos list, search bar, and like/dislike icons all are part of the frontend.
+
+backend:The part that works behind the scenes .it handles data, logic, and communication with the database.
+eg:When you log in to YouTube, the backend checks if your username and password are correct by talking to the database, then loads your personalized videos.
+
+Full Stack:A full-stack developer can work on both frontend and backend.
+Eg:A full-stack developer can create a blog website where users:
+See and write posts (frontend)
+
+Store those posts in a database (backend)
