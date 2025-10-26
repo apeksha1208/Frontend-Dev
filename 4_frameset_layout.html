@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frameset Layout</title>
+</head>
+<frameset rows="20%,80%">
+    <!-- Top frame for navigation -->
+    <frame src="4_navigation.html" name="navigation">
+    
+    <!-- Bottom frame for main content -->
+    <frame src="4_welcome.html" name="content">
+    
+    <noframes>
+        <body>
+            <p>Your browser does not support frames. Please upgrade to a modern browser.</p>
+        </body>
+    </noframes>
+</frameset>
+</html>

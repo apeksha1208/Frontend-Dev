@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Security Attributes</title>
+  </head>
+  <body>
+    <h1>Form Security Demonstration</h1>
+
+    <!-- Form with security attributes -->
+    <form action="#" method="post" autocomplete="off">
+      <fieldset>
+        <legend>Secure Form Example</legend>
+
+        <!-- Username field with required attribute -->
+        <label for="username">Username:</label><br />
+        <input type="text" id="username" name="username" required /><br /><br />
+
+        <!-- Password field with required attribute -->
+        <label for="password">Password:</label><br />
+        <input
+          type="password"
+          id="password"
+          name="password"
+          required
+        /><br /><br />
+
+        <!-- Email field with required attribute -->
+        <label for="email">Email:</label><br />
+        <input type="email" id="email" name="email" required /><br /><br />
+
+        <!-- Submit button -->
+        <input type="submit" value="Submit" />
+      </fieldset>
+    </form>
+
+    <h2>Security Features Explained</h2>
+
+    <h3>Autocomplete="off"</h3>
+    <p><strong>Why turning off autocomplete can improve security:</strong></p>
+    <ul>
+      <li>
+        <strong>Prevents credential theft:</strong> Disables browser's automatic
+        form filling, reducing the risk of sensitive information being stored in
+        browser cache or autofill databases.
+      </li>
+      <li>
+        <strong>Protects against keyloggers:</strong> Reduces the chance of
+        malicious software capturing sensitive data through autofill mechanisms.
+      </li>
+      <li>
+        <strong>Prevents shoulder surfing:</strong> Stops browsers from
+        displaying previously entered values that could be visible to others.
+      </li>
+      <li>
+        <strong>Reduces data exposure:</strong> Minimizes the amount of
+        sensitive information stored locally on the user's device.
+      </li>
+      <li>
+        <strong>Compliance requirements:</strong> Some security standards and
+        regulations require disabling autocomplete for sensitive forms.
+      </li>
+    </ul>
+
+    <h3>Required Attribute</h3>
+    <p>
+      The <code>required</code> attribute ensures that all fields must be filled
+      before form submission, providing client-side validation and improving
+      data quality.
+    </p>
+
+    <p>
+      <strong>Note:</strong> While <code>autocomplete="off"</code> provides some
+      security benefits, it should be used judiciously as it can also impact
+      user experience. Always balance security needs with usability
+      requirements.
+    </p>
+  </body>
+</html>
