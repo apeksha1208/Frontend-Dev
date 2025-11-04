@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Payment Form</title>
+  </head>
+  <body>
+    <h1>Payment Information</h1>
+
+    <form action="#" method="post">
+      <fieldset>
+        <legend>Card Details</legend>
+
+        <!-- Cardholder Name field -->
+        <label for="cardholdername">Cardholder Name:</label><br />
+        <input
+          type="text"
+          id="cardholdername"
+          name="cardholdername"
+          placeholder="Enter name as it appears on card"
+          required
+        /><br /><br />
+
+        <!-- Card Number field -->
+        <label for="cardnumber">Card Number:</label><br />
+        <input
+          type="text"
+          id="cardnumber"
+          name="cardnumber"
+          placeholder="1234 5678 9012 3456"
+          maxlength="19"
+          required
+        /><br /><br />
+
+        <!-- Expiry Date field -->
+        <label for="expirydate">Expiry Date:</label><br />
+        <input
+          type="text"
+          id="expirydate"
+          name="expirydate"
+          placeholder="MM/YY"
+          maxlength="5"
+          required
+        /><br /><br />
+
+        <!-- CVV field -->
+        <label for="cvv">CVV:</label><br />
+        <input
+          type="text"
+          id="cvv"
+          name="cvv"
+          placeholder="123"
+          maxlength="4"
+          required
+        /><br /><br />
+
+        <!-- Pay Now button -->
+        <input type="submit" value="Pay Now" />
+      </fieldset>
+    </form>
+
+    <p>
+      <em
+        >All fields are required. Please ensure all card information is entered
+        correctly before proceeding with payment.</em
+      >
+    </p>
+
+    <p>
+      <strong>Security Notice:</strong> This is a demonstration form. In a real
+      application, payment processing should be handled securely through a
+      trusted payment gateway.
+    </p>
+  </body>
+</html>

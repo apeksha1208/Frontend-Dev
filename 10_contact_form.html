@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Form</title>
+  </head>
+  <body>
+    <h1>Contact Us</h1>
+
+    <form action="#" method="post">
+      <fieldset>
+        <legend>Send us a message</legend>
+
+        <!-- Full Name field with placeholder and required -->
+        <label for="fullname">Full Name:</label><br />
+        <input
+          type="text"
+          id="fullname"
+          name="fullname"
+          placeholder="Enter your full name"
+          required
+        /><br /><br />
+
+        <!-- Email field with placeholder and required -->
+        <label for="email">Email:</label><br />
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="Enter your email address"
+          required
+        /><br /><br />
+
+        <!-- Subject field with placeholder and required -->
+        <label for="subject">Subject:</label><br />
+        <input
+          type="text"
+          id="subject"
+          name="subject"
+          placeholder="Enter the subject of your message"
+          required
+        /><br /><br />
+
+        <!-- Message textarea with placeholder and required -->
+        <label for="message">Message:</label><br />
+        <textarea
+          id="message"
+          name="message"
+          rows="5"
+          cols="50"
+          placeholder="Enter your message here..."
+          required
+        ></textarea
+        ><br /><br />
+
+        <!-- Submit button -->
+        <input type="submit" value="Send Message" />
+      </fieldset>
+    </form>
+
+    <p>
+      <em
+        >All fields are required. Please fill in all the information to send
+        your message.</em
+      >
+    </p>
+  </body>
+</html>

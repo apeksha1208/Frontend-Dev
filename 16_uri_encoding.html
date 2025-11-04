@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>URI Encoding Demonstration</title>
+  </head>
+  <body>
+    <h1>URI Encoding Examples</h1>
+
+    <p>
+      This page demonstrates URI encoding, which is used to safely include
+      special characters in URLs.
+    </p>
+
+    <h2>Original URL with Special Characters</h2>
+    <p>
+      The following URL contains spaces and special characters that need to be
+      encoded:
+    </p>
+    <p><code>https://example.com/search?query=HTML & CSS</code></p>
+
+    <h2>Encoded URL</h2>
+    <p>Here's the same URL with proper URI encoding (spaces become %20):</p>
+    <p><code>https://example.com/search?query=HTML%20%26%20CSS</code></p>
+
+    <h2>Live Example</h2>
+    <p>Click the link below to see URI encoding in action:</p>
+
+    <!-- Correctly encoded URL using %20 for spaces and %26 for ampersand -->
+    <a href="https://example.com/search?query=HTML%20%26%20CSS" target="_blank">
+      Search for "HTML & CSS" (Encoded URL)
+    </a>
+
+    <h2>Common URI Encoding Examples</h2>
+    <ul>
+      <li>Space: <code>%20</code></li>
+      <li>Ampersand (&): <code>%26</code></li>
+      <li>Plus sign (+): <code>%2B</code></li>
+      <li>Question mark (?): <code>%3F</code></li>
+      <li>Hash (#): <code>%23</code></li>
+      <li>Percent (%): <code>%25</code></li>
+    </ul>
+
+    <p>
+      <strong>Note:</strong> URI encoding ensures that special characters in
+      URLs are properly transmitted and interpreted by web servers and browsers.
+    </p>
+  </body>
+</html>

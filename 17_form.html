@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form with Iframe Result</title>
+  </head>
+  <body>
+    <h1>Form Submission with Iframe</h1>
+
+    <form action="#" method="post" target="resultframe">
+      <fieldset>
+        <legend>Enter Your Information</legend>
+
+        <!-- Text input field -->
+        <label for="userinput">Enter your message:</label><br />
+        <input
+          type="text"
+          id="userinput"
+          name="userinput"
+          placeholder="Type your message here..."
+          required
+        /><br /><br />
+
+        <!-- Submit button -->
+        <input type="submit" value="Submit" />
+      </fieldset>
+    </form>
+
+    <h2>Result will appear below:</h2>
+
+    <!-- Iframe to display the result -->
+    <iframe
+      name="resultframe"
+      src="17_result.html"
+      width="100%"
+      height="200"
+      title="Form Result"
+      frameborder="1"
+    >
+    </iframe>
+
+    <p>
+      <em
+        >After clicking Submit, the result will be displayed in the iframe
+        above.</em
+      >
+    </p>
+  </body>
+</html>

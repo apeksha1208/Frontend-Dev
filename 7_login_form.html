@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Form</title>
+  </head>
+  <body>
+    <h1>User Login</h1>
+
+    <form action="#" method="post">
+      <fieldset>
+        <legend>Login Information</legend>
+
+        <!-- Username field -->
+        <label for="username">Username:</label><br />
+        <input type="text" id="username" name="username" required /><br /><br />
+
+        <!-- Password field -->
+        <label for="password">Password:</label><br />
+        <input
+          type="password"
+          id="password"
+          name="password"
+          required
+        /><br /><br />
+
+        <!-- Hidden CSRF token field -->
+        <!-- CSRF (Cross-Site Request Forgery) tokens are used to prevent malicious websites from making unauthorized requests on behalf of authenticated users. 
+                 The token is a unique value that must be included with form submissions to verify the request is legitimate. -->
+        <input
+          type="hidden"
+          name="csrf_token"
+          value="abc123xyz789def456ghi012jkl345mno678pqr901stu234vwx567yza890bcd123efg456hij789klm012nop345qrs678tuv901wxy234zab567cde890fgh123ijk456lmn789opq012rst345uvw678xyz901"
+        />
+
+        <!-- Submit button -->
+        <input type="submit" value="Login" />
+      </fieldset>
+    </form>
+
+    <p>
+      <em>Please enter your username and password to access your account.</em>
+    </p>
+  </body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Information Form</title>
+  </head>
+  <body>
+    <h1>Student Information</h1>
+
+    <form action="#" method="post">
+      <fieldset>
+        <legend>Student Details</legend>
+
+        <!-- Name field -->
+        <label for="name">Name:</label><br />
+        <input type="text" id="name" name="name" required /><br /><br />
+
+        <!-- Roll Number field -->
+        <label for="rollnumber">Roll Number:</label><br />
+        <input
+          type="text"
+          id="rollnumber"
+          name="rollnumber"
+          required
+        /><br /><br />
+
+        <!-- Course dropdown with default disabled option -->
+        <label for="course">Course:</label><br />
+        <select id="course" name="course" required>
+          <option value="" disabled selected>Select Course</option>
+          <option value="computer-science">Computer Science</option>
+          <option value="mathematics">Mathematics</option>
+          <option value="physics">Physics</option>
+          <option value="chemistry">Chemistry</option>
+          <option value="biology">Biology</option>
+          <option value="english">English Literature</option>
+          <option value="history">History</option>
+          <option value="economics">Economics</option></select
+        ><br /><br />
+
+        <!-- Submit button -->
+        <input type="submit" value="Submit" />
+      </fieldset>
+    </form>
+
+    <p>
+      <em
+        >Please select a course from the dropdown menu. The "Select Course"
+        option is disabled and serves as a placeholder.</em
+      >
+    </p>
+  </body>
+</html>
