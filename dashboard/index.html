@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard - Analytics Overview</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="dashboard-container">
+      <!-- Fixed Header -->
+      <header class="dashboard-header">
+        <div class="header-content">
+          <h1 class="dashboard-title">Analytics Dashboard</h1>
+          <div class="header-actions">
+            <button class="header-button">Notifications</button>
+            <button class="header-button">Settings</button>
+            <div class="user-profile">
+              <img
+                src="https://via.placeholder.com/40x40/3498db/ffffff?text=U"
+                alt="User Profile"
+                class="profile-avatar"
+              />
+              <span class="user-name">John Doe</span>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <div class="dashboard-body">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+          <nav class="sidebar-nav">
+            <ul class="nav-list">
+              <li class="nav-item">
+                <a href="#overview" class="nav-link active">
+                  <span class="nav-icon">📊</span>
+                  Overview
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#analytics" class="nav-link">
+                  <span class="nav-icon">📈</span>
+                  Analytics
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#reports" class="nav-link">
+                  <span class="nav-icon">📋</span>
+                  Reports
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#users" class="nav-link">
+                  <span class="nav-icon">👥</span>
+                  Users
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#settings" class="nav-link">
+                  <span class="nav-icon">⚙️</span>
+                  Settings
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+          <div class="content-header">
+            <h2 class="content-title">Dashboard Overview</h2>
+            <p class="content-subtitle">
+              Welcome back! Here's what's happening today.
+            </p>
+          </div>
+
+          <!-- Content Boxes -->
+          <div class="content-grid">
+            <!-- Stats Card 1 -->
+            <div class="content-box stats-card">
+              <div class="box-header">
+                <h3 class="box-title">Total Users</h3>
+                <span class="box-icon">👥</span>
+              </div>
+              <div class="box-content">
+                <div class="stat-number">12,543</div>
+                <div class="stat-change positive">+12.5%</div>
+              </div>
+            </div>
+
+            <!-- Stats Card 2 -->
+            <div class="content-box stats-card">
+              <div class="box-header">
+                <h3 class="box-title">Revenue</h3>
+                <span class="box-icon">💰</span>
+              </div>
+              <div class="box-content">
+                <div class="stat-number">$45,678</div>
+                <div class="stat-change positive">+8.2%</div>
+              </div>
+            </div>
+
+            <!-- Stats Card 3 -->
+            <div class="content-box stats-card">
+              <div class="box-header">
+                <h3 class="box-title">Orders</h3>
+                <span class="box-icon">📦</span>
+              </div>
+              <div class="box-content">
+                <div class="stat-number">1,234</div>
+                <div class="stat-change negative">-2.1%</div>
+              </div>
+            </div>
+
+            <!-- Chart Card -->
+            <div class="content-box chart-card">
+              <div class="box-header">
+                <h3 class="box-title">Sales Trend</h3>
+                <span class="box-icon">📈</span>
+              </div>
+              <div class="box-content">
+                <div class="chart-placeholder">
+                  <div class="chart-bars">
+                    <div class="chart-bar" style="height: 60%"></div>
+                    <div class="chart-bar" style="height: 80%"></div>
+                    <div class="chart-bar" style="height: 45%"></div>
+                    <div class="chart-bar" style="height: 90%"></div>
+                    <div class="chart-bar" style="height: 70%"></div>
+                    <div class="chart-bar" style="height: 85%"></div>
+                    <div class="chart-bar" style="height: 95%"></div>
+                  </div>
+                  <p class="chart-label">Last 7 days performance</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Activity Card -->
+            <div class="content-box activity-card">
+              <div class="box-header">
+                <h3 class="box-title">Recent Activity</h3>
+                <span class="box-icon">🔔</span>
+              </div>
+              <div class="box-content">
+                <div class="activity-list">
+                  <div class="activity-item">
+                    <div class="activity-icon">✅</div>
+                    <div class="activity-text">
+                      <strong>New user registered</strong>
+                      <span>2 minutes ago</span>
+                    </div>
+                  </div>
+                  <div class="activity-item">
+                    <div class="activity-icon">💰</div>
+                    <div class="activity-text">
+                      <strong>Payment received</strong>
+                      <span>15 minutes ago</span>
+                    </div>
+                  </div>
+                  <div class="activity-item">
+                    <div class="activity-icon">📧</div>
+                    <div class="activity-text">
+                      <strong>Email sent</strong>
+                      <span>1 hour ago</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Tasks Card -->
+            <div class="content-box tasks-card">
+              <div class="box-header">
+                <h3 class="box-title">Pending Tasks</h3>
+                <span class="box-icon">📝</span>
+              </div>
+              <div class="box-content">
+                <div class="task-list">
+                  <div class="task-item">
+                    <input type="checkbox" id="task1" class="task-checkbox" />
+                    <label for="task1" class="task-label"
+                      >Update user documentation</label
+                    >
+                  </div>
+                  <div class="task-item">
+                    <input type="checkbox" id="task2" class="task-checkbox" />
+                    <label for="task2" class="task-label"
+                      >Review quarterly reports</label
+                    >
+                  </div>
+                  <div class="task-item">
+                    <input type="checkbox" id="task3" class="task-checkbox" />
+                    <label for="task3" class="task-label"
+                      >Schedule team meeting</label
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+  </body>
+</html>
