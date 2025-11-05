@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Box Model Exploration</title>
+    <link rel="stylesheet" href="question8.css">
+</head>
+<body>
+    <header>
+        <h1>Box Model Exploration</h1>
+    </header>
+    
+    <main>
+        <section class="box-model-section">
+            <h2>Understanding the CSS Box Model</h2>
+            
+            <div class="demo-container">
+                <!-- Default Box Model -->
+                <div class="box-model-demo">
+                    <h3>Default Box Model (content-box)</h3>
+                    <div class="box-wrapper default-box">
+                        <div class="margin-layer">
+                            Margin
+                            <div class="border-layer">
+                                Border
+                                <div class="padding-layer">
+                                    Padding
+                                    <div class="content-layer">
+                                        Content
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="description">
+                        In the default box model, width and height apply only to the content area. 
+                        Padding and border are added to the total size.
+                    </p>
+                </div>
+                
+                <!-- Border-Box Model -->
+                <div class="box-model-demo">
+                    <h3>Border-Box Model</h3>
+                    <div class="box-wrapper border-box">
+                        <div class="margin-layer">
+                            Margin
+                            <div class="border-layer">
+                                Border
+                                <div class="padding-layer">
+                                    Padding
+                                    <div class="content-layer">
+                                        Content
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="description">
+                        With box-sizing: border-box, width and height include padding and border. 
+                        The total size remains constant.
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Visual Comparison -->
+            <div class="comparison-section">
+                <h3>Visual Comparison</h3>
+                <div class="comparison-container">
+                    <div class="comparison-box default-comparison">
+                        <p>Default Box</p>
+                        <p class="size-info">Total: 340px × 340px</p>
+                    </div>
+                    
+                    <div class="comparison-box border-box-comparison">
+                        <p>Border-Box</p>
+                        <p class="size-info">Total: 300px × 300px</p>
+                    </div>
+                </div>
+                <p class="comparison-note">
+                    Both boxes are set to 300px × 300px, but the default box includes padding and border in addition to content.
+                </p>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <p>Box Model Exploration - CSS Practice</p>
+    </footer>
+</body>
+</html>
+

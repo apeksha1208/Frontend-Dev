@@ -1,0 +1,157 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+}
+
+/* Header Styles */
+header {
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    font-size: 2.5rem;
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+    
+    /* Text-shadow for depth on heading */
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+}
+
+.shadow-heading {
+    font-size: 1.2rem;
+    color: #7f8c8d;
+    
+    /* Text-shadow for subtle depth */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+/* Main Content */
+main {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 2rem;
+}
+
+.section-title {
+    text-align: center;
+    color: white;
+    font-size: 2rem;
+    margin-bottom: 3rem;
+    
+    /* Text-shadow for depth on section title */
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+/* Cards Container - Using Flexbox for single row layout */
+.cards-container {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Base Card Styles */
+.card {
+    background-color: white;
+    border-radius: 15px;
+    overflow: hidden;
+    width: 300px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+/* Card 1 - Subtle shadow */
+.card-1 {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Card 2 - Medium shadow */
+.card-2 {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* Card 3 - Strong shadow */
+.card-3 {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+/* Hover Effect - Cards lift up with larger shadow */
+.card:hover {
+    transform: translateY(-10px);
+    
+    /* Larger shadow on hover for lift effect */
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Card Image Section */
+.card-image {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 2rem;
+    text-align: center;
+}
+
+.avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: white;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #667eea;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Card Content */
+.card-content {
+    padding: 1.5rem;
+}
+
+.card-content h3 {
+    font-size: 1.5rem;
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+    
+    /* Text-shadow for depth on card titles */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.role {
+    color: #7f8c8d;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.description {
+    color: #555;
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+/* Footer Styles */
+footer {
+    background-color: rgba(255, 255, 255, 0.95);
+    text-align: center;
+    padding: 1.5rem;
+    margin-top: 3rem;
+    box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+}
+

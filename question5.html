@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced CSS Selectors</title>
+    <link rel="stylesheet" href="question5.css">
+</head>
+<body>
+    <header>
+        <h1>Advanced CSS Selectors Demonstration</h1>
+    </header>
+    
+    <main>
+        <section class="attribute-selectors">
+            <h2>Attribute Selectors</h2>
+            
+            <!-- Input with type="text" -->
+            <input type="text" placeholder="Text input - styled with [type='text']">
+            
+            <!-- Input with type="email" -->
+            <input type="email" placeholder="Email input - not styled">
+            
+            <!-- Links with different href attributes -->
+            <a href="https://example.com">HTTPS Link - styled with [href^="https"]</a>
+            <a href="http://example.com">HTTP Link - not styled</a>
+            <a href="mailto:test@example.com">Email Link</a>
+        </section>
+        
+        <section class="pseudo-classes">
+            <h2>Pseudo-Classes</h2>
+            
+            <ul class="list">
+                <li>First item - styled with :first-child</li>
+                <li>Second item</li>
+                <li>Third item - styled with :nth-child(3)</li>
+                <li>Fourth item</li>
+                <li>Fifth item - styled with :nth-child(odd)</li>
+                <li>Last item - styled with :last-child</li>
+            </ul>
+            
+            <div class="hover-box">
+                <p>Hover over this box - styled with :hover</p>
+            </div>
+            
+            <input type="text" class="focus-input" placeholder="Click to focus - styled with :focus">
+        </section>
+        
+        <section class="pseudo-elements">
+            <h2>Pseudo-Elements</h2>
+            
+            <p class="before-element">This paragraph has ::before pseudo-element</p>
+            
+            <p class="after-element">This paragraph has ::after pseudo-element</p>
+            
+            <p class="first-letter">This paragraph demonstrates ::first-letter styling. Notice how the first letter is styled differently from the rest of the text.</p>
+            
+            <p class="first-line">This paragraph demonstrates ::first-line styling. Only the first line of this paragraph will be styled with a different color and font weight. The rest of the text remains in the default styling.</p>
+        </section>
+        
+        <section class="combinators">
+            <h2>Combinators</h2>
+            
+            <!-- Child Combinator (>) -->
+            <div class="parent">
+                <p>Direct child - styled with > combinator</p>
+                <div class="nested">
+                    <p>Nested child - not styled by > combinator</p>
+                </div>
+            </div>
+            
+            <!-- Adjacent Sibling Combinator (+) -->
+            <h3>Heading before paragraph</h3>
+            <p class="adjacent">Adjacent sibling - styled with + combinator</p>
+            <p>This paragraph is not adjacent to h3</p>
+            
+            <!-- General Sibling Combinator (~) -->
+            <h4>Heading for general siblings</h4>
+            <p class="general-sibling">First general sibling - styled with ~ combinator</p>
+            <div>Some content</div>
+            <p class="general-sibling">Second general sibling - also styled with ~ combinator</p>
+            
+            <!-- Descendant Combinator (space) -->
+            <div class="ancestor">
+                <p>Descendant paragraph - styled with space combinator</p>
+                <div>
+                    <p>Nested descendant - also styled with space combinator</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <p>Advanced CSS Selectors - CSS Practice</p>
+    </footer>
+</body>
+</html>
+

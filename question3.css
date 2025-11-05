@@ -1,0 +1,139 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.8;
+    color: #333;
+}
+
+/* Fixed Header - Stays at top while scrolling */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(44, 62, 80, 0.95);
+    color: white;
+    padding: 1.5rem 2rem;
+    text-align: center;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+header h1 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+header p {
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+/* Main Content - Add padding to account for fixed header */
+main {
+    margin-top: 120px;
+}
+
+/* Linear Gradient Section */
+.linear-gradient-section {
+    min-height: 100vh;
+    padding: 4rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    /* Linear gradient background - top to bottom */
+    background: linear-gradient(to bottom, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.linear-gradient-section .content {
+    max-width: 800px;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 3rem;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+}
+
+.linear-gradient-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.linear-gradient-section p {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    line-height: 1.8;
+}
+
+/* Angled Linear Gradient Section */
+.linear-gradient-angled {
+    /* Linear gradient at 45-degree angle */
+    background: linear-gradient(45deg, #f093fb 0%, #f5576c 50%, #4facfe 100%);
+}
+
+/* Radial Gradient Section with fixed attachment */
+.radial-gradient-section {
+    min-height: 100vh;
+    padding: 4rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    /* Radial gradient background - emanating from center */
+    background: radial-gradient(circle at center, #ffeaa7 0%, #fdcb6e 50%, #e17055 100%);
+    color: #2d3436;
+    
+    /* Fixed attachment creates parallax-like effect */
+    background-attachment: fixed;
+}
+
+.radial-gradient-section .content {
+    max-width: 800px;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 3rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.radial-gradient-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: #2d3436;
+}
+
+.radial-gradient-section p {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    line-height: 1.8;
+    color: #636e72;
+}
+
+/* Fixed Footer - Stays at bottom */
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(44, 62, 80, 0.95);
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    z-index: 1000;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Adjust main content padding for fixed footer */
+main {
+    padding-bottom: 80px;
+}
+

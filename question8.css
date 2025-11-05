@@ -1,0 +1,232 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #ecf0f1;
+}
+
+/* Header Styles */
+header {
+    background-color: #2c3e50;
+    color: white;
+    padding: 2rem;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 2rem;
+}
+
+/* Main Content - Centered using Flexbox */
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 200px);
+    padding: 2rem;
+}
+
+/* Box Model Section */
+.box-model-section {
+    max-width: 1200px;
+    width: 100%;
+}
+
+.box-model-section > h2 {
+    text-align: center;
+    color: #2c3e50;
+    font-size: 2rem;
+    margin-bottom: 3rem;
+}
+
+/* Demo Container - Flexbox for layout */
+.demo-container {
+    display: flex;
+    gap: 3rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 3rem;
+}
+
+/* Box Model Demo */
+.box-model-demo {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.box-model-demo h3 {
+    color: #2c3e50;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    font-size: 1.3rem;
+}
+
+/* Box Wrapper - Centered using Flexbox */
+.box-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+/* Default Box Model - content-box */
+.default-box .margin-layer {
+    /* Margin layer - outermost */
+    background-color: #f39c12;
+    padding: 20px;
+    outline: 2px dashed #e67e22;
+    outline-offset: 2px;
+}
+
+.default-box .border-layer {
+    /* Border layer */
+    border: 15px solid #3498db;
+    background-color: #3498db;
+}
+
+.default-box .padding-layer {
+    /* Padding layer */
+    background-color: #2ecc71;
+    padding: 20px;
+}
+
+.default-box .content-layer {
+    /* Content layer - innermost */
+    background-color: #e74c3c;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+/* Border-Box Model */
+.border-box .margin-layer {
+    /* Margin layer - outermost */
+    background-color: #f39c12;
+    padding: 20px;
+    outline: 2px dashed #e67e22;
+    outline-offset: 2px;
+}
+
+.border-box .border-layer {
+    /* Border layer */
+    border: 15px solid #3498db;
+    background-color: #3498db;
+}
+
+.border-box .padding-layer {
+    /* Padding layer */
+    background-color: #2ecc71;
+    padding: 20px;
+}
+
+.border-box .content-layer {
+    /* Content layer - innermost
+       With border-box, padding and border are included in width/height */
+    background-color: #e74c3c;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    font-size: 1.2rem;
+    box-sizing: border-box;
+}
+
+/* Description Text */
+.description {
+    text-align: center;
+    color: #555;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    max-width: 400px;
+}
+
+/* Comparison Section */
+.comparison-section {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.comparison-section h3 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 2rem;
+    font-size: 1.5rem;
+}
+
+/* Comparison Container - Flexbox for side-by-side */
+.comparison-container {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+}
+
+/* Comparison Boxes */
+.comparison-box {
+    width: 300px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 5px solid #34495e;
+    background-color: #ecf0f1;
+    color: #2c3e50;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+/* Default Comparison - includes padding and border in total size */
+.default-comparison {
+    padding: 20px;
+    /* Total size = 300px (content) + 40px (padding) = 340px × 340px */
+}
+
+/* Border-Box Comparison - padding and border included in 300px */
+.border-box-comparison {
+    padding: 20px;
+    box-sizing: border-box;
+    /* Total size = 300px × 300px (includes padding and border) */
+}
+
+.size-info {
+    font-size: 0.9rem;
+    margin-top: 1rem;
+    color: #7f8c8d;
+}
+
+.comparison-note {
+    text-align: center;
+    color: #555;
+    font-size: 0.95rem;
+    font-style: italic;
+}
+
+/* Footer Styles */
+footer {
+    background-color: #2c3e50;
+    color: white;
+    text-align: center;
+    padding: 1.5rem;
+}
+
