@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Box-Sizing Comparison</title>
+    <link rel="stylesheet" href="box-sizing.css">
+</head>
+<body>
+    <header>
+        <h1>Box-Sizing Comparison</h1>
+        <p>Understanding content-box vs border-box</p>
+    </header>
+
+    <main>
+        <section class="comparison-container">
+            <!-- Default Box-Sizing (content-box) -->
+            <article class="box-example">
+                <h2>Default (content-box)</h2>
+                <p class="description">
+                    With <strong>content-box</strong> (default), padding and border are added to the total width.
+                    The total width = width + padding + border
+                </p>
+                <div class="box content-box">
+                    <p>Width: 300px</p>
+                    <p>Padding: 30px</p>
+                    <p>Border: 5px</p>
+                    <p class="total">Total: 370px</p>
+                </div>
+            </article>
+
+            <!-- Border-Box -->
+            <article class="box-example">
+                <h2>Border-Box</h2>
+                <p class="description">
+                    With <strong>border-box</strong>, padding and border are included in the width.
+                    The total width = width (includes padding and border)
+                </p>
+                <div class="box border-box">
+                    <p>Width: 300px</p>
+                    <p>Padding: 30px</p>
+                    <p>Border: 5px</p>
+                    <p class="total">Total: 300px</p>
+                </div>
+            </article>
+        </section>
+
+        <section class="comparison-visual">
+            <div class="visual-box content-box-visual">
+                <div class="visual-content">content-box</div>
+            </div>
+            <div class="visual-box border-box-visual">
+                <div class="visual-content">border-box</div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 CSS Classes Practice</p>
+    </footer>
+</body>
+</html>
+
