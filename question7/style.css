@@ -1,0 +1,31 @@
+/* Custom styles for Task Tracker */
+
+/* List group item hover effect */
+.list-group-item {
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.list-group-item:hover {
+    background-color: #f8f9fa;
+    transform: translateX(5px);
+}
+
+/* Badge styling enhancements */
+.badge {
+    font-size: 0.9rem;
+    padding: 0.5em 0.75em;
+}
+
+/* Card shadow on hover */
+.card {
+    transition: box-shadow 0.3s ease;
+}
+
+.card:hover {
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Button with badge styling */
+.btn .badge {
+    font-size: 0.8rem;
+}

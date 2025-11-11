@@ -1,0 +1,22 @@
+/* Custom styles for Product Catalog */
+
+/* Product card with shadow and hover effect */
+.product-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* shadow-sm: subtle shadow by default */
+}
+
+.product-card:hover {
+    transform: translateY(-8px);
+    /* shadow-lg: larger shadow on hover */
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Smooth image transitions */
+.card-img-top {
+    transition: transform 0.3s ease;
+}
+
+.product-card:hover .card-img-top {
+    transform: scale(1.05);
+}

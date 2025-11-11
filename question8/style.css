@@ -1,0 +1,45 @@
+/* Custom styles for Pricing Plans */
+
+/* Pricing card with hover effects */
+.pricing-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 2px solid #dee2e6;
+}
+
+/* shadow-lg on hover: large shadow effect */
+.pricing-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175) !important;
+}
+
+/* Pro plan special styling */
+.pro-plan {
+    border: 3px solid #0d6efd;
+    transform: scale(1.05);
+}
+
+.pro-plan:hover {
+    transform: scale(1.08) translateY(-5px);
+}
+
+/* List item styling */
+.list-unstyled li {
+    padding: 0.25rem 0;
+    font-size: 1rem;
+}
+
+/* Card body padding */
+.pricing-card .card-body {
+    padding: 2rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .pro-plan {
+        transform: scale(1);
+    }
+    
+    .pro-plan:hover {
+        transform: translateY(-5px);
+    }
+}

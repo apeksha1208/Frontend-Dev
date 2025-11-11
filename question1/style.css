@@ -1,0 +1,16 @@
+/* Custom styles for Company Landing Page */
+
+/* Hero section background */
+.hero-section {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+/* Feature cards styling */
+.features-section .card {
+    transition: transform 0.3s ease;
+}
+
+.features-section .card:hover {
+    transform: translateY(-5px);
+}

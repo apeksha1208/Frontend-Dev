@@ -1,0 +1,38 @@
+/* Custom styles for Notifications Dashboard */
+
+/* Alert styling enhancements */
+.alert {
+    border-left: 4px solid;
+    transition: all 0.3s ease;
+}
+
+.alert-success {
+    border-left-color: #198754;
+}
+
+.alert-info {
+    border-left-color: #0dcaf0;
+}
+
+.alert-danger {
+    border-left-color: #dc3545;
+}
+
+.alert-warning {
+    border-left-color: #ffc107;
+}
+
+/* Card hover effect */
+.card {
+    transition: transform 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+}
+
+/* Summary well styling */
+.bg-light.border {
+    background-color: #f8f9fa !important;
+    border-color: #dee2e6 !important;
+}

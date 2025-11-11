@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apeksha Singh - Personal Portfolio</title>
+    <!-- Bootstrap 5 CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header with name and tagline -->
+    <header class="bg-light py-5">
+        <div class="container text-center">
+            <!-- Text center utility: centers all content -->
+            <h1 class="fw-bold mb-3">Apeksha Singh</h1>
+            <!-- Lead class: makes text larger and lighter -->
+            <p class="lead text-dark">Full Stack Developer & Creative Problem Solver</p>
+        </div>
+    </header>
+
+    <main>
+        <!-- Profile section with image and buttons -->
+        <section class="py-5">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-8 text-center">
+                        <!-- Margin top-4: adds spacing above -->
+                        <div class="mt-4 mb-4">
+                            <!-- img-fluid: makes image responsive, rounded-circle: circular shape -->
+                            <img src="https://via.placeholder.com/200" alt="Apeksha Singh" class="img-fluid rounded-circle profile-img">
+                        </div>
+                        
+                        <!-- Padding-5: adds padding on all sides -->
+                        <div class="p-5 bg-light rounded">
+                            <h2 class="fw-bold mb-3">About Me</h2>
+                            <p class="text-dark mb-4">Passionate developer with expertise in modern web technologies. I love building innovative solutions that make a difference.</p>
+                            
+                            <!-- Button group with margin bottom-3 -->
+                            <div class="mb-3">
+                                <!-- Primary button -->
+                                <button class="btn btn-primary btn-lg me-2">Hire Me</button>
+                                <!-- Secondary button -->
+                                <button class="btn btn-outline-secondary btn-lg">Download CV</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact form section -->
+        <section class="py-5 bg-light">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-6">
+                        <h2 class="text-center fw-bold mb-4">Get In Touch</h2>
+                        <!-- Contact form -->
+                        <form>
+                            <!-- form-control: Bootstrap styled input -->
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Name</label>
+                                <input type="text" class="form-control" id="name" placeholder="Your Name">
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="email" placeholder="your.email@example.com">
+                            </div>
+                            <div class="mb-3">
+                                <label for="message" class="form-label">Message</label>
+                                <textarea class="form-control" id="message" rows="4" placeholder="Your Message"></textarea>
+                            </div>
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-primary">Send Message</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center py-4">
+        <div class="container">
+            <p>&copy; 2024 Apeksha Singh. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

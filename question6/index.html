@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notifications Dashboard</title>
+    <!-- Bootstrap 5 CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="bg-dark text-white py-4">
+        <div class="container">
+            <h1 class="mb-0">Notifications Dashboard</h1>
+            <p class="mb-0 lead">Stay updated with your alerts</p>
+        </div>
+    </header>
+
+    <main class="py-5">
+        <div class="container">
+            <!-- Dashboard panel using card -->
+            <div class="card shadow-sm">
+                <div class="card-header bg-primary text-white">
+                    <h3 class="mb-0">Your Notifications</h3>
+                </div>
+                <div class="card-body">
+                    <!-- Success alert: alert-success for positive messages -->
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <strong>New Message!</strong> You have received a new message from your colleague.
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+
+                    <!-- Info alert: alert-info for informational messages -->
+                    <div class="alert alert-info alert-dismissible fade show" role="alert">
+                        <strong>Tip:</strong> Remember to update your profile information for better visibility.
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+
+                    <!-- Danger alert: alert-danger for warnings -->
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <strong>Warning!</strong> Your subscription will expire in 3 days. Please renew to continue using our services.
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+
+                    <!-- Dismissible alert: can be closed by user -->
+                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                        <strong>Reminder:</strong> Don't forget to complete your weekly review by Friday.
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Summary well section: bg-light with padding and border -->
+            <section class="mt-4">
+                <div class="card">
+                    <div class="card-body bg-light border rounded p-4">
+                        <h4 class="card-title mb-3">Summary</h4>
+                        <p class="card-text mb-2"><strong>Total Notifications:</strong> 4</p>
+                        <p class="card-text mb-2"><strong>Unread:</strong> 2</p>
+                        <p class="card-text mb-0"><strong>Last Updated:</strong> Just now</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Additional info section -->
+            <section class="mt-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Notification Settings</h5>
+                        <p class="card-text">Manage your notification preferences to stay informed about what matters most to you.</p>
+                        <button class="btn btn-outline-primary">Manage Settings</button>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center py-4 mt-5">
+        <div class="container">
+            <p>&copy; 2024 Notifications Dashboard. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
