@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Form Submit Blocker</title>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        padding: 30px;
+    }
+
+    form {
+        width: 320px;
+        padding: 20px;
+        border: 2px solid #ccc;
+        border-radius: 8px;
+    }
+
+    label {
+        font-weight: bold;
+    }
+
+    input {
+        width: 100%;
+        margin-top: 5px;
+        margin-bottom: 10px;
+        padding: 8px;
+        border-radius: 5px;
+        border: 1px solid #999;
+        font-size: 15px;
+    }
+
+    .error {
+        color: red;
+        font-size: 14px;
+        margin-bottom: 8px;
+        display: none;
+    }
+
+    #success {
+        color: green;
+        font-size: 18px;
+        margin-top: 15px;
+        display: none;
+    }
+</style>
+</head>
+<body>
+
+<h2>Form Submit Blocker</h2>
+
+<form id="myForm">
+    <label>Name:</label>
+    <input type="text" id="name">
+    <div id="nameErr" class="error">Name is required</div>
+
+    <label>Email:</label>
+    <input type="text" id="email">
+    <div id="emailErr" class="error">Invalid email (must contain @)</div>
+
+    <label>Password:</label>
+    <input type="password" id="password">
+    <div id="passErr" class="error">Password must be at least 6 characters</div>
+
+    <button type="submit">Submit</button>
+</form>
+
+<p id="success">Form Submitted Successfully ✔</p>
+
+<script>
+    const form = document.getElementById("myForm");
+
+    const nameInput = document.getElementById("name");
+    const emailInput = document.getElementById("email");
+    const passInput = document.getElementById("password");
+
+    const nameErr = document.getElementById("nameErr");
+    const emailErr = document.getElementById("emailErr");
+    const passErr = document.getElementById("passErr");
+    const successMsg = document.getElementById("success");
+
+    function validate() {
+        let isValid = true;
+
+        // Validate name
+        if (nameInput.value.trim() === "") {
+            nameErr.style.display = "block";
+            isValid = false;
+        } else {
+            nameErr.style.display = "none";
+        }
+
+        // Validate email
+        if (!emailInput.value.includes("@") || emailInput.value.trim() === "") {
+            emailErr.style.display = "block";
+            isValid = false;
+        } else {
+            emailErr.style.display = "none";
+        }
+
+        // Validate password
+        if (passInput.value.length < 6) {
+            passErr.style.display = "block";
+            isValid = false;
+        } else {
+            passErr.style.display = "none";
+        }
+
+        return isValid;
+    }
+
+    // On form submit
+    form.addEventListener("submit", function(e) {
+        e.preventDefault(); // Stop submission
+
+        successMsg.style.display = "none"; // hide old success message
+
+        if (validate()) {
+            successMsg.style.display = "block";
+            form.reset(); // optional: clear form
+        }
+    });
+
+    // Live removal of errors
+    nameInput.addEventListener("input", validate);
+    emailInput.addEventListener("input", validate);
+    passInput.addEventListener("input", validate);
+</script>
+
+</body>
+</html>

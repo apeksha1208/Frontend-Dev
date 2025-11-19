@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Theme Switcher</title>
+
+<style>
+  body {
+    transition: 0.3s ease;
+    font-family: Arial, sans-serif;
+    padding: 20px;
+  }
+
+  /* Default Light Theme */
+  body[data-theme="light"] {
+    background: #ffffff;
+    color: #000;
+  }
+
+  /* Dark Theme */
+  body[data-theme="dark"] {
+    background: #1e1e1e;
+    color: #fff;
+  }
+
+  /* Blue Theme */
+  body[data-theme="blue"] {
+    background: #1b3c78;
+    color: #dde8ff;
+  }
+
+  button {
+    padding: 10px 14px;
+    margin-right: 10px;
+    cursor: pointer;
+    margin-top: 15px;
+  }
+</style>
+
+</head>
+<body data-theme="light">
+
+<h2>Theme Switcher (Using Attribute Manipulation)</h2>
+
+<button id="lightBtn">Light</button>
+<button id="darkBtn">Dark</button>
+<button id="blueBtn">Blue</button>
+
+<script src="themeSwitcher.js"></script>
+</body>
+</html>

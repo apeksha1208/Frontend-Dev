@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Multi Step Form</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+  }
+
+  .step {
+    display: none;
+    margin-top: 20px;
+  }
+
+  .active {
+    display: block;
+  }
+
+  input {
+    width: 250px;
+    padding: 8px;
+    font-size: 16px;
+    margin-top: 10px;
+  }
+
+  button {
+    margin-top: 15px;
+    padding: 8px 14px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+
+  #summaryBox {
+    padding: 15px;
+    background: #f3f3f3;
+    margin-top: 20px;
+    font-size: 18px;
+  }
+</style>
+</head>
+<body>
+
+<h2>Multi-Step Form</h2>
+
+<!-- Step 1 -->
+<div id="step1" class="step active">
+  <h3>Step 1: Enter Name</h3>
+  <input type="text" id="nameInput" placeholder="Name">
+  <br>
+  <button id="next1">Next</button>
+</div>
+
+<!-- Step 2 -->
+<div id="step2" class="step">
+  <h3>Step 2: Enter Email</h3>
+  <input type="email" id="emailInput" placeholder="Email">
+  <br>
+  <button id="back2">Back</button>
+  <button id="next2">Next</button>
+</div>
+
+<!-- Step 3 -->
+<div id="step3" class="step">
+  <h3>Step 3: Enter Password</h3>
+  <input type="password" id="passInput" placeholder="Password">
+  <br>
+  <button id="back3">Back</button>
+  <button id="finish">Finish</button>
+</div>
+
+<!-- Summary -->
+<div id="summary" class="step">
+  <h2>Summary</h2>
+  <div id="summaryBox"></div>
+</div>
+
+<script src="multistep.js"></script>
+</body>
+</html>

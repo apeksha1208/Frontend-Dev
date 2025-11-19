@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Stylish Table Filter</title>
+
+<style>
+    body {
+        font-family: "Poppins", sans-serif;
+        padding: 30px;
+        background: #f4f6f9;
+    }
+
+    h2 {
+        margin-bottom: 10px;
+    }
+
+    #search {
+        padding: 12px;
+        width: 350px;
+        font-size: 16px;
+        border-radius: 8px;
+        border: 2px solid #777;
+        outline: none;
+        transition: 0.3s;
+    }
+
+    #search:focus {
+        border-color: #4A90E2;
+        box-shadow: 0 0 8px #4A90E299;
+    }
+
+    table {
+        width: 70%;
+        border-collapse: collapse;
+        margin-top: 15px;
+        background: white;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    th {
+        background: #4A90E2;
+        color: white;
+        padding: 12px;
+        font-size: 18px;
+    }
+
+    td {
+        padding: 12px;
+        border-bottom: 1px solid #ddd;
+        font-size: 16px;
+        transition: 0.3s ease;
+    }
+
+    tr:hover td {
+        background: #f0f8ff;
+    }
+
+    tr.hide {
+        opacity: 0;
+        height: 0;
+        transform: scale(0.98);
+        transition: all 0.3s ease-out;
+        display: none;
+    }
+
+    mark {
+        background: yellow;
+        font-weight: bold;
+    }
+
+    #noResults {
+        margin-top: 10px;
+        font-weight: bold;
+        color: red;
+        display: none;
+        font-size: 18px;
+    }
+</style>
+
+</head>
+<body>
+
+<h2>🔎 Stylish Real-Time Student Table Filter</h2>
+
+<input type="text" id="search" placeholder="Search students...">
+
+<table id="studentTable">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Branch</th>
+            <th>CGPA</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr><td>Rohan</td><td>CSE</td><td>8.7</td></tr>
+        <tr><td>Priya</td><td>ECE</td><td>9.1</td></tr>
+        <tr><td>Aman</td><td>Mechanical</td><td>7.9</td></tr>
+        <tr><td>Neha</td><td>CSE</td><td>9.3</td></tr>
+        <tr><td>Sanket</td><td>Civil</td><td>8.1</td></tr>
+        <tr><td>Sara</td><td>IT</td><td>8.8</td></tr>
+    </tbody>
+</table>
+
+<p id="noResults">⚠ No results found</p>
+
+<script>
+    const searchBox = document.getElementById("search");
+    const rows = document.querySelectorAll("tbody tr");
+    const noResults = document.getElementById("noResults");
+
+    searchBox.addEventListener("input", () => {
+        const value = searchBox.value.toLowerCase();
+        let countVisible = 0;
+
+        rows.forEach(row => {
+            const text = row.textContent.toLowerCase();
+
+            // Remove previous highlights
+            row.querySelectorAll("td").forEach(cell => {
+                cell.innerHTML = cell.textContent;
+            });
+
+            if (text.includes(value)) {
+                row.classList.remove("hide");
+                countVisible++;
+
+                // Highlight matched text
+                if (value.trim() !== "") {
+                    row.querySelectorAll("td").forEach(cell => {
+                        const regex = new RegExp(value, "gi");
+                        cell.innerHTML = cell.textContent.replace(regex, match => `<mark>${match}</mark>`);
+                    });
+                }
+
+            } else {
+                row.classList.add("hide");
+            }
+        });
+
+        noResults.style.display = countVisible === 0 ? "block" : "none";
+    });
+</script>
+
+</body>
+</html>

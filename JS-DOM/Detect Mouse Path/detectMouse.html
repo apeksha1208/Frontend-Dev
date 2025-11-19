@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Mouse Path & Coordinates Logger</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<h2>Mouse Path & Coordinates Logger</h2>
+
+<div class="container">
+  <div>
+    <div class="box" id="box">
+      <canvas id="canvas" width="400" height="400"></canvas>
+    </div>
+    <div class="hint">Move mouse inside the box to draw a path. Double-click to drop a red dot.</div>
+  </div>
+
+  <div class="panel">
+    <div class="coords">Client coords: <span id="clientCoords">—</span></div>
+    <div class="coords">Box coords (x,y): <span id="boxCoords">—</span></div>
+
+    <div class="controls">
+      <button id="clearPath">Clear Path</button>
+      <button id="clearDots">Clear Dots</button>
+      <button id="clearAll" class="primary">Clear All</button>
+    </div>
+
+    <h4>Dropped Dots Log</h4>
+    <div class="log" id="log"></div>
+  </div>
+</div>
+
+<script src="detectMouse.js"></script>
+</body>
+</html>
