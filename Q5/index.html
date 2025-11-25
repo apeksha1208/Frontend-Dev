@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q5: College Timetable Viewer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+        }
+        .selector-container {
+            margin-bottom: 30px;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+        }
+        #daySelect {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+        #daySelect:focus {
+            border-color: #667eea;
+        }
+        .timetable-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .class-item {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 25px;
+            border-left: 5px solid #667eea;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .class-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .class-subject {
+            font-size: 22px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .class-faculty {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 8px;
+        }
+        .class-time {
+            font-size: 14px;
+            color: #667eea;
+            font-weight: 600;
+        }
+        .no-classes {
+            text-align: center;
+            padding: 60px 20px;
+            color: #999;
+            font-size: 18px;
+        }
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #667eea;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📅 College Timetable Viewer</h1>
+        <div class="selector-container">
+            <label for="daySelect">Select Day:</label>
+            <select id="daySelect">
+                <option value="Monday">Monday</option>
+                <option value="Tuesday">Tuesday</option>
+                <option value="Wednesday">Wednesday</option>
+                <option value="Thursday">Thursday</option>
+                <option value="Friday">Friday</option>
+                <option value="Saturday">Saturday</option>
+                <option value="Sunday">Sunday</option>
+            </select>
+        </div>
+        <div class="timetable-list" id="timetableList">
+            <!-- Timetable will be loaded here -->
+        </div>
+    </div>
+
+    <script>
+        const API_URL = 'http://localhost:3005/timetable';
+
+        function loadTimetable(day) {
+            document.getElementById('timetableList').innerHTML = '<div class="loading">Loading...</div>';
+            
+            fetch(`${API_URL}?day=${day}`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(classes => {
+                    displayTimetable(classes);
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    document.getElementById('timetableList').innerHTML = 
+                        '<div class="no-classes">Error loading timetable</div>';
+                });
+        }
+
+        function displayTimetable(classes) {
+            const list = document.getElementById('timetableList');
+            
+            if (!classes || classes.length === 0) {
+                list.innerHTML = '<div class="no-classes">No classes today.</div>';
+                return;
+            }
+
+            list.innerHTML = '';
+            classes.forEach(cls => {
+                const item = document.createElement('div');
+                item.className = 'class-item';
+                item.innerHTML = `
+                    <div class="class-subject">${cls.subject}</div>
+                    <div class="class-faculty">👨‍🏫 ${cls.faculty}</div>
+                    <div class="class-time">🕐 ${cls.time}</div>
+                `;
+                list.appendChild(item);
+            });
+        }
+
+        // Load timetable on page load (default: Monday)
+        loadTimetable('Monday');
+
+        // Handle day selection change
+        document.getElementById('daySelect').addEventListener('change', function() {
+            const selectedDay = this.value;
+            loadTimetable(selectedDay);
+        });
+    </script>
+</body>
+</html>
+

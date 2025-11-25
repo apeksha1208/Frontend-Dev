@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q2: Employee Status Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+        }
+        .error-message {
+            display: none;
+            background: #ffebee;
+            color: #c62828;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border-left: 4px solid #c62828;
+        }
+        .error-message.show {
+            display: block;
+        }
+        .employee-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .employee-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            transition: background 0.3s;
+        }
+        .employee-row:hover {
+            background: #e9ecef;
+        }
+        .employee-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .employee-name {
+            font-size: 18px;
+            font-weight: 600;
+            color: #333;
+        }
+        .status-badge {
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+        .status-active {
+            background: #c8e6c9;
+            color: #2e7d32;
+        }
+        .status-inactive {
+            background: #ffcdd2;
+            color: #c62828;
+        }
+        .toggle-switch {
+            position: relative;
+            width: 60px;
+            height: 30px;
+        }
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: 0.4s;
+            border-radius: 30px;
+        }
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 22px;
+            width: 22px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: 0.4s;
+            border-radius: 50%;
+        }
+        input:checked + .slider {
+            background-color: #4caf50;
+        }
+        input:checked + .slider:before {
+            transform: translateX(30px);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>👥 Employee Status Dashboard</h1>
+        <div class="error-message" id="errorMessage">
+            Failed to update employee status. Please try again.
+        </div>
+        <div class="employee-list" id="employeeList">
+            <!-- Employees will be loaded here -->
+        </div>
+    </div>
+
+    <script>
+        const API_URL = 'http://localhost:3002/employees';
+
+        function loadEmployees() {
+            const xhr = new XMLHttpRequest();
+            xhr.open('GET', API_URL, true);
+            xhr.onload = function() {
+                if (xhr.status === 200) {
+                    const employees = JSON.parse(xhr.responseText);
+                    displayEmployees(employees);
+                } else {
+                    document.getElementById('employeeList').innerHTML = 
+                        '<p style="text-align: center; color: #999;">Error loading employees</p>';
+                }
+            };
+            xhr.onerror = function() {
+                document.getElementById('employeeList').innerHTML = 
+                    '<p style="text-align: center; color: #999;">Error loading employees</p>';
+            };
+            xhr.send();
+        }
+
+        function displayEmployees(employees) {
+            const list = document.getElementById('employeeList');
+            list.innerHTML = '';
+            
+            employees.forEach(employee => {
+                const row = document.createElement('div');
+                row.className = 'employee-row';
+                row.innerHTML = `
+                    <div class="employee-info">
+                        <div class="employee-name">${employee.name}</div>
+                        <span class="status-badge status-${employee.status}">${employee.status.toUpperCase()}</span>
+                    </div>
+                    <label class="toggle-switch">
+                        <input type="checkbox" ${employee.status === 'active' ? 'checked' : ''} 
+                               onchange="toggleStatus(${employee.id}, '${employee.status}')">
+                        <span class="slider"></span>
+                    </label>
+                `;
+                list.appendChild(row);
+            });
+        }
+
+        function toggleStatus(id, currentStatus) {
+            const newStatus = currentStatus === 'active' ? 'inactive' : 'active';
+            const errorMessage = document.getElementById('errorMessage');
+            errorMessage.classList.remove('show');
+            
+            // Optimistically update UI
+            updateUIStatus(id, newStatus);
+            
+            // Send PATCH request
+            const xhr = new XMLHttpRequest();
+            xhr.open('PATCH', `${API_URL}/${id}`, true);
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            
+            xhr.onload = function() {
+                if (xhr.status === 200) {
+                    // Success - UI already updated
+                } else {
+                    // Revert UI and show error
+                    updateUIStatus(id, currentStatus);
+                    errorMessage.classList.add('show');
+                    setTimeout(() => {
+                        errorMessage.classList.remove('show');
+                    }, 5000);
+                }
+            };
+            
+            xhr.onerror = function() {
+                // Revert UI and show error
+                updateUIStatus(id, currentStatus);
+                errorMessage.classList.add('show');
+                setTimeout(() => {
+                    errorMessage.classList.remove('show');
+                }, 5000);
+            };
+            
+            xhr.send(JSON.stringify({ status: newStatus }));
+        }
+
+        function updateUIStatus(id, status) {
+            const rows = document.querySelectorAll('.employee-row');
+            rows.forEach(row => {
+                const checkbox = row.querySelector('input[type="checkbox"]');
+                const badge = row.querySelector('.status-badge');
+                
+                if (checkbox && checkbox.onchange.toString().includes(`toggleStatus(${id}`)) {
+                    checkbox.checked = status === 'active';
+                    badge.className = `status-badge status-${status}`;
+                    badge.textContent = status.toUpperCase();
+                }
+            });
+        }
+
+        // Load employees on page load
+        loadEmployees();
+    </script>
+</body>
+</html>
+

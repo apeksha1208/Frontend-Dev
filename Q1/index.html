@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Q1: Real-Time Live Search</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+        padding: 40px 20px;
+      }
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+        background: white;
+        border-radius: 20px;
+        padding: 40px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      }
+      h1 {
+        text-align: center;
+        color: #333;
+        margin-bottom: 30px;
+        font-size: 2.5em;
+      }
+      .search-container {
+        position: relative;
+        margin-bottom: 30px;
+      }
+      #searchInput {
+        width: 100%;
+        padding: 15px 20px;
+        font-size: 18px;
+        border: 2px solid #e0e0e0;
+        border-radius: 10px;
+        outline: none;
+        transition: border-color 0.3s;
+      }
+      #searchInput:focus {
+        border-color: #667eea;
+      }
+      .loading {
+        display: none;
+        text-align: center;
+        padding: 20px;
+        color: #667eea;
+      }
+      .loading.active {
+        display: block;
+      }
+      .spinner {
+        border: 3px solid #f3f3f3;
+        border-top: 3px solid #667eea;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        animation: spin 1s linear infinite;
+        margin: 0 auto;
+      }
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+      #results {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 20px;
+      }
+      .product-card {
+        background: #f8f9fa;
+        border-radius: 10px;
+        padding: 20px;
+        text-align: center;
+        transition: transform 0.3s, box-shadow 0.3s;
+        cursor: pointer;
+      }
+      .product-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      }
+      .product-image {
+        width: 100%;
+        height: 150px;
+        object-fit: cover;
+        border-radius: 8px;
+        margin-bottom: 15px;
+      }
+      .product-name {
+        font-size: 18px;
+        font-weight: bold;
+        color: #333;
+        margin-bottom: 10px;
+      }
+      .product-price {
+        font-size: 20px;
+        color: #667eea;
+        font-weight: bold;
+      }
+      .no-results {
+        text-align: center;
+        padding: 40px;
+        color: #999;
+        font-size: 18px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>🔍 Real-Time Live Search</h1>
+      <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Search products..." />
+      </div>
+      <div class="loading" id="loading">
+        <div class="spinner"></div>
+        <p>Searching...</p>
+      </div>
+      <div id="results"></div>
+    </div>
+
+    <script>
+      let searchTimeout;
+      let allProducts = [];
+      const API_URL = "http://localhost:3001/products";
+
+      // Load all products on page load
+      $.ajax({
+        url: API_URL,
+        method: "GET",
+        success: function (products) {
+          allProducts = products;
+        },
+        error: function () {
+          $("#results").html(
+            '<div class="no-results">Error loading products</div>'
+          );
+        },
+      });
+
+      $("#searchInput").on("input", function () {
+        const query = $(this).val().trim().toLowerCase();
+
+        clearTimeout(searchTimeout);
+
+        if (query === "") {
+          $("#results").html("");
+          $("#loading").removeClass("active");
+          return;
+        }
+
+        $("#loading").addClass("active");
+
+        searchTimeout = setTimeout(() => {
+          // Send GET request with query parameter
+          $.ajax({
+            url: API_URL,
+            method: "GET",
+            data: { q: query },
+            success: function (products) {
+              $("#loading").removeClass("active");
+              // Filter products client-side for better search
+              const filtered = products.filter((product) =>
+                product.name.toLowerCase().includes(query)
+              );
+              displayResults(filtered);
+            },
+            error: function () {
+              $("#loading").removeClass("active");
+              // Fallback to client-side filtering
+              const filtered = allProducts.filter((product) =>
+                product.name.toLowerCase().includes(query)
+              );
+              displayResults(filtered);
+            },
+          });
+        }, 300);
+      });
+
+      function displayResults(products) {
+        if (!products || products.length === 0) {
+          $("#results").html('<div class="no-results">No products found</div>');
+          return;
+        }
+
+        let html = "";
+        products.forEach((product) => {
+          html += `
+                    <div class="product-card">
+                        <img src="${product.image}" alt="${
+            product.name
+          }" class="product-image">
+                        <div class="product-name">${product.name}</div>
+                        <div class="product-price">$${product.price.toFixed(
+                          2
+                        )}</div>
+                    </div>
+                `;
+        });
+        $("#results").html(html);
+      }
+    </script>
+  </body>
+</html>

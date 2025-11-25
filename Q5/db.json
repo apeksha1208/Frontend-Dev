@@ -1,0 +1,75 @@
+{
+  "timetable": [
+    {
+      "id": 1,
+      "day": "Monday",
+      "subject": "Mathematics",
+      "faculty": "Dr. John Smith",
+      "time": "09:00 - 10:30"
+    },
+    {
+      "id": 2,
+      "day": "Monday",
+      "subject": "Physics",
+      "faculty": "Prof. Sarah Johnson",
+      "time": "11:00 - 12:30"
+    },
+    {
+      "id": 3,
+      "day": "Monday",
+      "subject": "Chemistry",
+      "faculty": "Dr. Michael Brown",
+      "time": "14:00 - 15:30"
+    },
+    {
+      "id": 4,
+      "day": "Tuesday",
+      "subject": "Computer Science",
+      "faculty": "Prof. Emily Davis",
+      "time": "09:00 - 10:30"
+    },
+    {
+      "id": 5,
+      "day": "Tuesday",
+      "subject": "English",
+      "faculty": "Dr. David Wilson",
+      "time": "11:00 - 12:30"
+    },
+    {
+      "id": 6,
+      "day": "Wednesday",
+      "subject": "Mathematics",
+      "faculty": "Dr. John Smith",
+      "time": "09:00 - 10:30"
+    },
+    {
+      "id": 7,
+      "day": "Wednesday",
+      "subject": "Biology",
+      "faculty": "Prof. Lisa Anderson",
+      "time": "11:00 - 12:30"
+    },
+    {
+      "id": 8,
+      "day": "Thursday",
+      "subject": "Physics Lab",
+      "faculty": "Prof. Sarah Johnson",
+      "time": "14:00 - 16:00"
+    },
+    {
+      "id": 9,
+      "day": "Friday",
+      "subject": "Computer Science",
+      "faculty": "Prof. Emily Davis",
+      "time": "09:00 - 10:30"
+    },
+    {
+      "id": 10,
+      "day": "Friday",
+      "subject": "Mathematics",
+      "faculty": "Dr. John Smith",
+      "time": "11:00 - 12:30"
+    }
+  ]
+}
+

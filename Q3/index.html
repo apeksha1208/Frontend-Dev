@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q3: Task Manager With Filters</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+        }
+        .filter-container {
+            margin-bottom: 30px;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+        }
+        #filterSelect {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+        #filterSelect:focus {
+            border-color: #667eea;
+        }
+        .task-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .task-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .task-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .task-checkbox {
+            width: 24px;
+            height: 24px;
+            cursor: pointer;
+        }
+        .task-content {
+            flex: 1;
+        }
+        .task-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 5px;
+        }
+        .task-title.completed {
+            text-decoration: line-through;
+            color: #999;
+        }
+        .task-priority {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        .priority-high {
+            background: #ffcdd2;
+            color: #c62828;
+        }
+        .priority-medium {
+            background: #fff9c4;
+            color: #f57f17;
+        }
+        .priority-low {
+            background: #c8e6c9;
+            color: #2e7d32;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>✅ Task Manager</h1>
+        <div class="filter-container">
+            <label for="filterSelect">Filter by Priority/Status:</label>
+            <select id="filterSelect">
+                <option value="">All Tasks</option>
+                <option value="low">Low Priority</option>
+                <option value="medium">Medium Priority</option>
+                <option value="high">High Priority</option>
+                <option value="completed">Completed</option>
+            </select>
+        </div>
+        <div class="task-list" id="taskList">
+            <!-- Tasks will be loaded here -->
+        </div>
+    </div>
+
+    <script>
+        const API_URL = 'http://localhost:3003/tasks';
+
+        function loadTasks(filter = '') {
+            let url = API_URL;
+            if (filter && filter !== 'completed') {
+                url += `?priority=${filter}`;
+            } else if (filter === 'completed') {
+                url += `?completed=true`;
+            }
+
+            $.ajax({
+                url: url,
+                method: 'GET',
+                success: function(tasks) {
+                    displayTasks(tasks);
+                },
+                error: function() {
+                    $('#taskList').html('<p style="text-align: center; color: #999;">Error loading tasks</p>');
+                }
+            });
+        }
+
+        function displayTasks(tasks) {
+            const list = $('#taskList');
+            list.html('');
+            
+            if (tasks.length === 0) {
+                list.html('<p style="text-align: center; color: #999; padding: 40px;">No tasks found</p>');
+                return;
+            }
+
+            tasks.forEach(task => {
+                const item = $(`
+                    <div class="task-item">
+                        <input type="checkbox" class="task-checkbox" ${task.completed ? 'checked' : ''} 
+                               data-id="${task.id}" data-completed="${task.completed}">
+                        <div class="task-content">
+                            <div class="task-title ${task.completed ? 'completed' : ''}">${task.title}</div>
+                            <span class="task-priority priority-${task.priority}">${task.priority.toUpperCase()} PRIORITY</span>
+                        </div>
+                    </div>
+                `);
+                list.append(item);
+            });
+
+            // Attach change event to checkboxes
+            $('.task-checkbox').on('change', function() {
+                const taskId = $(this).data('id');
+                const currentCompleted = $(this).data('completed');
+                toggleTask(taskId, !currentCompleted);
+            });
+        }
+
+        function toggleTask(id, completed) {
+            $.ajax({
+                url: `${API_URL}/${id}`,
+                method: 'PATCH',
+                contentType: 'application/json',
+                data: JSON.stringify({ completed: completed }),
+                success: function() {
+                    // Reload tasks with current filter
+                    const filter = $('#filterSelect').val();
+                    loadTasks(filter);
+                },
+                error: function() {
+                    alert('Failed to update task. Please try again.');
+                    // Reload to revert UI
+                    const filter = $('#filterSelect').val();
+                    loadTasks(filter);
+                }
+            });
+        }
+
+        // Load tasks on page load
+        loadTasks();
+
+        // Handle filter change
+        $('#filterSelect').on('change', function() {
+            const filter = $(this).val();
+            loadTasks(filter);
+        });
+    </script>
+</body>
+</html>
+
