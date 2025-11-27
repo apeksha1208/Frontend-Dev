@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  .grid img { width:120px; height:80px; cursor:pointer; }
+  .modal{
+    position:fixed; inset:0;
+    background:rgba(0,0,0,.6);
+    display:flex; justify-content:center; align-items:center;
+  }
+  .box{ background:white; padding:10px; }
+</style>
+</head>
+
+<body>
+
+<div class="grid">
+  <img src="https://picsum.photos/seed/a/300/200">
+  <img src="https://picsum.photos/seed/b/300/200">
+  <img src="https://picsum.photos/seed/c/300/200">
+</div>
+
+<script>
+document.querySelector(".grid").onclick = e => {
+  if(e.target.tagName !== "IMG") return;
+
+  const modal = document.createElement("div");
+  modal.className = "modal";
+  modal.innerHTML = `
+    <div class="box">
+      <img src="${e.target.src}" style="max-width:500px">
+    </div>
+  `;
+
+  modal.onclick = () => modal.remove();
+  modal.querySelector(".box").onclick = ev => ev.stopPropagation();
+
+  document.body.appendChild(modal);
+};
+</script>
+</body>
+</html>
